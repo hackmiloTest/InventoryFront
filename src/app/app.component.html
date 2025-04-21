@@ -1,7 +1,10 @@
 <div class="dashboard-layout">
   <!-- SIDEBAR -->
   <div class="sidebar">
-    <h1 class="ims">JR STORE</h1>
+    <div class="sidebar-header">
+      <h1 class="ims">JR STORE</h1>
+      <button class="sidebar-toggle" (click)="toggleSidebar()">☰</button>
+    </div>
     <ul class="nav-links">
       <li *ngIf="isAuth()"><a routerLink="/transaction">Transacciones</a></li>
       <li *ngIf="isAuth()"><a routerLink="/purchase">Compras</a></li>

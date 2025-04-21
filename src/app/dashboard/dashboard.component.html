@@ -4,19 +4,19 @@
 
       
     <!-- Transaction Selection -->
-    <div style="margin-bottom: 50px; margin-top: 30px;">
-        <label>Select Month:</label>
-        <select [(ngModel)]="selectedMonth">
-          <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
-        </select>
+    <div class="select-group">
+      <label>Select Month:</label>
+      <select [(ngModel)]="selectedMonth">
+        <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+      </select>
     
-        <label>Select Year:</label>
-        <select [(ngModel)]="selectedYear">
-          <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-        </select>
+      <label>Select Year:</label>
+      <select [(ngModel)]="selectedYear">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
     
-        <button (click)="loadMonthlyData()">Show Monthly Data</button>
-      </div>
+      <button (click)="loadMonthlyData()">Show Monthly Data</button>
+    </div>    
 
   
     <!-- Transaction Type Count Bar Chart -->

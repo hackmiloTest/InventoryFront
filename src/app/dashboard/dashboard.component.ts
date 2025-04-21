@@ -55,7 +55,20 @@ export class DashboardComponent {
 
   // ngOnInit lifecycle hook, called when the component initializes
   ngOnInit(): void {
-    this.loadTransactions(); // Load transactions when the component initializes
+    this.setResponsiveView();
+    window.addEventListener('resize', () => this.setResponsiveView());
+    this.loadTransactions();
+  }
+
+  setResponsiveView(): void {
+    const width = window.innerWidth;
+    if (width < 600) {
+      this.view = [350, 300];
+    } else if (width < 900) {
+      this.view = [500, 350];
+    } else {
+      this.view = [700, 400];
+    }
   }
 
   // Method to fetch all transactions from the API

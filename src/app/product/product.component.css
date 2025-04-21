@@ -166,3 +166,75 @@
   .add-product-btn:hover {
     background-color: #2F4F4F;
   }
+
+  @media (max-width: 768px) {
+    .product-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  
+    .search-add-container {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+    }
+  
+    .search-input {
+      width: 100%;
+      min-width: unset;
+    }
+  
+    .bulk-upload-btn,
+    .add-product-btn {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+    }
+  
+    .product-table-container {
+      padding: 10px;
+    }
+  
+    .product-table {
+      font-size: 0.9rem;
+    }
+  
+    .product-actions {
+      flex-direction: column;
+      gap: 6px;
+    }
+  
+    .edit-btn,
+    .delete-btn {
+      width: 100%;
+      padding: 8px;
+      font-size: 0.85rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-table-container {
+      overflow-x: auto;
+    }
+  
+    .product-table th,
+    .product-table td {
+      white-space: nowrap;
+      padding: 8px;
+    }
+  
+    .product-header h1 {
+      font-size: 1.5rem;
+    }
+  
+    .search-input {
+      font-size: 0.95rem;
+    }
+  
+    .bulk-upload-btn,
+    .add-product-btn {
+      font-size: 0.95rem;
+    }
+  }
+  

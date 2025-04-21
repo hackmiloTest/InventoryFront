@@ -1,25 +1,55 @@
- 
 .dashboard-container {
     padding: 20px;
-    }
-     
-    .dashboard-container select {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .select-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+  }
+  
+  .select-group label {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .select-group select {
     padding: 8px;
-    font-size: 17px;
-    border: 1px solid #f0f0f0;
+    font-size: 16px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    margin: 0px 10px;
-    }
-     
-    h1,
-    h2 {
+  }
+  
+  .select-group button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .select-group button:hover {
+    background-color: #0056b3;
+  }
+  
+  h1, h2 {
     text-align: center;
-    }
-     
-    ngx-charts-bar-vertical,
-    ngx-charts-pie-chart {
+  }
+  
+  ngx-charts-bar-vertical,
+  ngx-charts-pie-chart {
     display: block;
-    margin: auto;
-    }
-     
-    
+    margin: 20px auto;
+    width: 100%;
+    max-width: 100%;
+  }
+  

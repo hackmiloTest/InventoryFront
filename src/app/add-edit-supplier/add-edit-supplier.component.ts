@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ApiService } from '../service/api.service';
@@ -22,12 +22,25 @@ export class AddEditSupplierComponent implements OnInit {
     address: '',
   };
 
+  // Añade esto para manejar cambios de tamaño de pantalla
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.checkScreenSize();
+  }
+
+  isMobile = false;
+
   ngOnInit(): void {
+    this.checkScreenSize();
     this.supplierId = this.router.url.split('/')[2]; //extracting supplier id from url
     if (this.supplierId) {
       this.isEditing = true;
       this.fetchSupplier();
     }
+  }
+
+  private checkScreenSize() {
+    this.isMobile = window.innerWidth < 768;
   }
 
   fetchSupplier(): void {

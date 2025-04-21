@@ -1,34 +1,116 @@
+/* Reset y estilos base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     border: none;
-}
-
-button {
-    padding: 10px 15px;
-    font-size: 14px;
-    background-color: #c250c2;
+  }
+  
+  html {
+    font-size: 16px;
+  }
+  
+  body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+  }
+  
+  /* Botones responsive */
+  button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
     background-color: #17a2b8;
     color: #ffffff;
-    font-weight: 800;
+    font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 120px;
+  }
+  
+  button:hover {
     background-color: #2F4F4F;
-}
-
-.message {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Mensajes responsive */
+  .message {
     background-color: #d4edda;
     color: #155724;
-    padding: 10px;
+    padding: 1rem;
     border-radius: 5px;
     text-align: center;
-    margin-bottom: 30px;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+    margin: 1rem auto;
+    max-width: 90%;
+  }
+  
+  /* Media Queries para diferentes tamaños de pantalla */
+  @media (max-width: 1200px) {
+    html {
+      font-size: 15px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    html {
+      font-size: 14px;
+    }
+    
+    button {
+      padding: 0.6rem 1.2rem;
+      min-width: 110px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    html {
+      font-size: 13px;
+    }
+    
+    .message {
+      padding: 0.8rem;
+      margin: 0.8rem auto;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    html {
+      font-size: 12px;
+    }
+    
+    button {
+      padding: 0.5rem 1rem;
+      min-width: 100px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Clases utilitarias para responsive */
+  .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px)

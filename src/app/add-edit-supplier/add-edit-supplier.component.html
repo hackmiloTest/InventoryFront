@@ -4,23 +4,31 @@
 
   <form (ngSubmit)="handleSubmit()">
     <div class="form-group">
-      <label for="">Name</label>
+      <label for="supplierName">Name</label>
       <input
         type="text"
         [(ngModel)]="formData.name"
         name="name"
+        id="supplierName"
         placeholder="Enter supplier name"
+        required
       />
     </div>
+    
     <div class="form-group">
-      <label for="">Address</label>
+      <label for="supplierAddress">Address</label>
       <input
         type="text"
         [(ngModel)]="formData.address"
         name="address"
+        id="supplierAddress"
         placeholder="Enter supplier address"
+        required
       />
     </div>
-    <button type="submit">{{ isEditing ? "Edit Supplier" : "Add Supplier" }}</button>
+    
+    <button type="submit">
+      {{ isEditing ? "Update Supplier" : "Add Supplier" }}
+    </button>
   </form>
 </div>

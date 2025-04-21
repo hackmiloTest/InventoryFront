@@ -16,7 +16,7 @@ import { environment } from '../../environments/environment';
 export class ApiService {
 
   authStatuschanged = new EventEmitter<void>();
-  private static BASE_URL = environment.apiUrl;
+  private static BASE_URL = 'http://localhost:5050/api';
   private static ENCRYPTION_KEY = "phegon-dev-inventory";
 
 
@@ -74,15 +74,15 @@ export class ApiService {
   /***AUTH & USERS API METHODS */
 
   registerUser(body: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/auth/register`, body);
+    return this.http.post(`${ApiService.BASE_URL}/auth/register`, body);
   }
 
   loginUser(body: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/auth/login`, body);
+    return this.http.post(`${ApiService.BASE_URL}/auth/login`, body);
   }
 
   getLoggedInUserInfo(): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/users/current`, {
+    return this.http.get(`${ApiService.BASE_URL}/users/current`, {
       headers: this.getHeader(),
     });
   }

@@ -87,4 +87,78 @@
     opacity: 0;
     }
     }
+
+    @media (max-width: 1024px) {
+        .profile-card {
+          width: 80%;
+          padding: 30px;
+        }
+      
+        .profile-card h1 {
+          font-size: 2rem;
+          margin-bottom: 60px;
+        }
+      
+        .profile-item {
+          font-size: 18px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .profile-page {
+          align-items: flex-start;
+          padding-top: 40px;
+        }
+      
+        .profile-card {
+          width: 100%;
+          padding: 25px;
+        }
+      
+        .profile-card h1 {
+          font-size: 1.8rem;
+          margin-bottom: 40px;
+        }
+      
+        .profile-info {
+          padding: 15px;
+        }
+      
+        .profile-item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 5px;
+          font-size: 16px;
+        }
+      
+        .profile-item label {
+          font-size: 15px;
+        }
+      
+        .profile-item span {
+          font-size: 15px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .profile-card {
+          padding: 20px;
+          border-radius: 10px;
+        }
+      
+        .profile-card h1 {
+          font-size: 1.5rem;
+          margin-bottom: 30px;
+        }
+      
+        .profile-item {
+          font-size: 15px;
+        }
+      
+        .message {
+          font-size: 14px;
+          padding: 8px;
+        }
+      }
+      
     
