@@ -74,15 +74,15 @@ export class ApiService {
   /***AUTH & USERS API METHODS */
 
   registerUser(body: any): Observable<any> {
-    return this.http.post(`${ApiService.BASE_URL}/auth/register`, body);
+    return this.http.post(`${environment.apiUrl}/auth/register`, body);
   }
 
   loginUser(body: any): Observable<any> {
-    return this.http.post(`${ApiService.BASE_URL}/auth/login`, body);
+    return this.http.post(`${environment.apiUrl}/auth/login`, body);
   }
 
   getLoggedInUserInfo(): Observable<any> {
-    return this.http.get(`${ApiService.BASE_URL}/users/current`, {
+    return this.http.get(`${environment.apiUrl}/users/current`, {
       headers: this.getHeader(),
     });
   }
