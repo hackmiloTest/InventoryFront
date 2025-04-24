@@ -1,22 +1,20 @@
 <div class="dashboard-layout">
   <!-- SIDEBAR -->
-  <div class="sidebar">
+  <div class="sidebar" [class.active]="sidebarActive">
     <div class="sidebar-header">
       <h1 class="ims">JR STORE</h1>
       <button class="sidebar-toggle" (click)="toggleSidebar()">☰</button>
     </div>
     <ul class="nav-links">
-      <li *ngIf="isAuth()"><a routerLink="/transaction">Transacciones</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/purchase">Compras</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/sell">Ventas</a></li>
-      <li *ngIf="isAdmin()"><a routerLink="/product">Inventario</a></li>
-      <li *ngIf="isAdmin()"><a routerLink="/category">Categorias</a></li>
-      <li *ngIf="isAdmin()"><a routerLink="/supplier">Proveedor</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/dashboard">Tablero</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/profile">Perfil</a></li>
-      <li *ngIf="!isAuth()"><a routerLink="/login">Login</a></li>
-      <li *ngIf="!isAuth()"><a routerLink="/register">Register</a></li>
-      <li *ngIf="isAuth()"><a (click)="logOut()" >Logout</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Transacciones</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Compras</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Ventas</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Inventario</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Categorias</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Tablero</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Perfil</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Register</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Logout</a></li>
     </ul>
   </div>
 
