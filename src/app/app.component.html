@@ -6,15 +6,16 @@
       <button class="sidebar-toggle" (click)="toggleSidebar()">☰</button>
     </div>
     <ul class="nav-links">
-      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Transacciones</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Compras</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/transaction" (click)="closeSidebarOnNavigation()">Transacciones</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/purchase" (click)="closeSidebarOnNavigation()">Compras</a></li>
       <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Ventas</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Inventario</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Categorias</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Tablero</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Perfil</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Register</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Logout</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/product" (click)="closeSidebarOnNavigation()">Inventario</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/category" (click)="closeSidebarOnNavigation()">Categorias</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/dashboard" (click)="closeSidebarOnNavigation()">Tablero</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/supplier" (click)="closeSidebarOnNavigation()">Proveedor</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/profile" (click)="closeSidebarOnNavigation()">Perfil</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/register" (click)="closeSidebarOnNavigation()">Register</a></li>
+      <li *ngIf="isAuth()"><a (click)="logOut()" >Logout</a></li>
     </ul>
   </div>
 
