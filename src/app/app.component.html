@@ -6,17 +6,18 @@
       <h1 class="ims">JR STORE</h1>
     </div>
     <ul class="nav-links">
-      <li *ngIf="isAuth()"><a routerLink="/transaction" (click)="closeSidebarOnNavigation()">Transacciones</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/purchase" (click)="closeSidebarOnNavigation()">Ingresar Compra</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Ingresar Venta</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/product" (click)="closeSidebarOnNavigation()">Inventario</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/category" (click)="closeSidebarOnNavigation()">Categorias</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/dashboard" (click)="closeSidebarOnNavigation()">Tablero</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/supplier" (click)="closeSidebarOnNavigation()">Proveedor</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/profile" (click)="closeSidebarOnNavigation()">Perfil</a></li>
-      <li *ngIf="isAuth()"><a routerLink="/register" (click)="closeSidebarOnNavigation()">Register</a></li>
-      <li *ngIf="isAuth()"><a (click)="logOut()" >Logout</a></li>
+      <li *ngIf="apiService.isManager()"><a routerLink="/transaction" (click)="closeSidebarOnNavigation()">Transacciones</a></li>
+      <li *ngIf="apiService.isManager()"><a routerLink="/purchase" (click)="closeSidebarOnNavigation()">Compras</a></li>
+      <li *ngIf="apiService.isManager()"><a routerLink="/sell" (click)="closeSidebarOnNavigation()">Ventas</a></li>
+      <li *ngIf="apiService.isManager()"><a routerLink="/product" (click)="closeSidebarOnNavigation()">Inventario</a></li>
+      <li *ngIf="apiService.isManager()"><a routerLink="/category" (click)="closeSidebarOnNavigation()">Categorias</a></li>
+      <li *ngIf="apiService.isManager()"><a routerLink="/dashboard" (click)="closeSidebarOnNavigation()">Tablero</a></li>
+      <li *ngIf="apiService.isManager()"><a routerLink="/supplier" (click)="closeSidebarOnNavigation()">Proveedor</a></li>
+    
+      <li *ngIf="apiService.isAuthenticated()"><a routerLink="/profile" (click)="closeSidebarOnNavigation()">Perfil</a></li>
+      <li *ngIf="apiService.isAuthenticated()"><a (click)="logOut()">Logout</a></li>
     </ul>
+    
   </div>
 
   <!-- MAIN CONTENT Area-->

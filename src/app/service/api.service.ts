@@ -29,7 +29,7 @@ export class ApiService {
   }
 
   // Retreive from localStorage and Decrypt
-  private getFromStorageAndDecrypt(key: string): any {
+  public getFromStorageAndDecrypt(key: string): any {
     try {
       const encryptedValue = localStorage.getItem(key);
       if (!encryptedValue) return null;
@@ -322,4 +322,10 @@ export class ApiService {
     return role === "ADMIN";
   }
 
+  isManager(): boolean {
+    const role = this.getFromStorageAndDecrypt("role");
+    return role === "MANAGER";
+  }
+  
+  
 }

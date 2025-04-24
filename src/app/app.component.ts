@@ -15,7 +15,7 @@ export class AppComponent {
   sidebarActive = false; // Nueva propiedad para controlar el estado del sidebar
 
   constructor(
-    private apiService: ApiService,
+    public apiService: ApiService,
     private router: Router,
     private cdr: ChangeDetectorRef
   ) {}
@@ -47,4 +47,8 @@ export class AppComponent {
     this.cdr.detectChanges();
     this.sidebarActive = false; // Cierra el sidebar al cerrar sesión
   }
+  isManager(): boolean {
+    return this.apiService.getFromStorageAndDecrypt('role') === 'MANAGER';
+  }
+  
 }
