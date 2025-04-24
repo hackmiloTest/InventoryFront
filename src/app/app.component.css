@@ -147,3 +147,16 @@
       padding: 15px;
     }
   }
+
+  .sidebar-toggle {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1100; /* más que el sidebar */
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+  }
+  
