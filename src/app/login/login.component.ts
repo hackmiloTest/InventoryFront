@@ -38,7 +38,7 @@ export class LoginComponent {
       if (response.status === 200) {
         this.apiService.encryptAndSaveToStorage('token', response.token);
         this.apiService.encryptAndSaveToStorage('role', response.role);
-        this.router.navigate(["/transaction"]);
+        this.router.navigate(["/login"]);
       }
     } catch (error:any) {
       console.log(error)
