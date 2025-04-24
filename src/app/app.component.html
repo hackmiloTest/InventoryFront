@@ -4,7 +4,6 @@
   <div class="sidebar" [class.active]="sidebarActive">
     <div class="sidebar-header">
       <h1 class="ims">JR STORE</h1>
-      <button class="sidebar-toggle" (click)="toggleSidebar()">☰</button>
     </div>
     <ul class="nav-links">
       <li *ngIf="isAuth()"><a routerLink="/transaction" (click)="closeSidebarOnNavigation()">Transacciones</a></li>

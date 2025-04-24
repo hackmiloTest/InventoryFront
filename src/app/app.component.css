@@ -149,14 +149,25 @@
   }
 
   .sidebar-toggle {
-    position: absolute;
+    position: fixed;
     top: 15px;
     left: 15px;
-    z-index: 1100; /* más que el sidebar */
-    background-color: transparent;
+    z-index: 1101; /* más alto que el sidebar */
+    background: #1c1e21;
     border: none;
-    font-size: 2rem;
-    color: #333;
+    color: white;
+    padding: 10px 12px;
+    font-size: 1.5rem;
+    border-radius: 6px;
     cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    display: none;
   }
+  
+  @media (max-width: 768px) {
+    .sidebar-toggle {
+      display: block;
+    }
+  }
+  
   
