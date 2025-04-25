@@ -17,7 +17,7 @@ export class GuardService implements CanActivate {
     console.log('[GUARD] Es Admin:', this.apiService.isAdmin());
 
     if (requiresAdmin) {
-      if (this.apiService.isAdmin()) {
+      if (this.apiService.isManager() || this.apiService.isAdmin()) {
         return true;
       }
     } else {
