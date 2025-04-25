@@ -176,6 +176,7 @@ export class ApiService {
 
 
 
+
   /**PRODUICTS ENDPOINTS */
   addProduct(formData: any): Observable<any> {
     return this.http.post(`${environment.apiUrl}/products/add`, formData, {
@@ -313,19 +314,29 @@ export class ApiService {
   }
 
   isAuthenticated(): boolean {
-    const token = this.getFromStorageAndDecrypt("token");
-    return !!token;
+    try {
+      const token = this.getFromStorageAndDecrypt("token");
+      return token !== null && token.trim() !== '';
+    } catch (e) {
+      return false;
+    }
   }
-
+  
   isAdmin(): boolean {
-    const role = this.getFromStorageAndDecrypt("role");
-    return role === "ADMIN";
+    try {
+      const role = this.getFromStorageAndDecrypt("role");
+      return role === "ADMIN";
+    } catch (e) {
+      return false;
+    }
   }
+  
 
   isManager(): boolean {
     const role = this.getFromStorageAndDecrypt("role");
     return role === "MANAGER";
   }
+
   
   
 }
