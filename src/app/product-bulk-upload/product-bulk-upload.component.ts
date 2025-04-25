@@ -5,6 +5,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../service/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -24,6 +25,7 @@ export class ProductBulkUploadComponent {
 
   constructor(private apiService: ApiService,
     private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef,
     private router: Router) { }
 
   onFileSelected(event: any) {
@@ -54,6 +56,8 @@ export class ProductBulkUploadComponent {
 
     this.isUploading = true;
     this.uploadProgress = 0;
+    this.cdr.detectChanges(); // <-- Forzar actualización de vista
+
 
     const formData = new FormData();
     formData.append('file', this.selectedFile);
