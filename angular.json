@@ -21,7 +21,6 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/nike.png",
               {
                 "glob": "**/*",
                 "input": "public"
