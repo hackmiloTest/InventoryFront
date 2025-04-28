@@ -230,6 +230,11 @@ export class ApiService {
     return event;
   }
 
+  getTotalProducts(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/products/totalProducts`, {
+      headers: this.getHeader(),
+    });
+  }
 
 
 

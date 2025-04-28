@@ -237,4 +237,22 @@
       font-size: 0.95rem;
     }
   }
+
+  .product-summary {
+    margin-bottom: 1rem;
+    background-color: #e7f3f9;
+    padding: 10px 15px;
+    border-left: 5px solid #17a2b8;
+    border-radius: 4px;
+  }
+  
+  .category-summary ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  
+  .category-summary li {
+    list-style-type: disc;
+  }
+  
   

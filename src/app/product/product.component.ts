@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms'; // <-- Agrega este import
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
+Object: any;
   constructor(private apiService: ApiService, private router: Router) { }
   products: any[] = [];
   allProducts: any[] = []; // <-- Nueva propiedad para almacenar todos los productos
@@ -21,10 +22,15 @@ export class ProductComponent implements OnInit {
   totalPages: number = 0;
   itemsPerPage: number = 10;
   searchTerm: string = ''; // <-- Nueva propiedad para el término de búsqueda
+  totalStock: number = 0;
+  categoryCounts: { [category: string]: number } = {};
+
 
   ngOnInit(): void {
     this.fetchProducts();
+    this.fetchProductTotals(); // <-- Nuevo
   }
+  
 
   //FETCH PRODUCTS
   fetchProducts(): void {
@@ -43,6 +49,19 @@ export class ProductComponent implements OnInit {
       },
     });
   }
+
+  fetchProductTotals(): void {
+    this.apiService.getTotalProducts().subscribe({
+      next: (res: any) => {
+        this.totalStock = res.totalStock || 0;
+        this.categoryCounts = res.categoryCounts || {};
+      },
+      error: (error) => {
+        console.error("Error fetching totals:", error);
+      }
+    });
+  }
+  
 
   // Método para aplicar filtros de búsqueda
   applyFilters(): void {
