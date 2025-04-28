@@ -6,15 +6,6 @@
     <h1>Products</h1>
     <div class="product-summary">
       <p><strong>Total Stock:</strong> {{ totalStock }}</p>
-    
-      <div class="category-summary" *ngIf="categoryCounts && Object.keys(categoryCounts).length > 0">
-        <p><strong>Products by Category:</strong></p>
-        <ul>
-          <li *ngFor="let category of categoryCounts | keyvalue">
-            {{ category.key }}: {{ category.value }}
-          </li>
-        </ul>
-      </div>
     </div>
     
     <div class="search-add-container">
