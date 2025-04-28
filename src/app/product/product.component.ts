@@ -53,14 +53,16 @@ Object: any;
   fetchProductTotals(): void {
     this.apiService.getTotalProducts().subscribe({
       next: (res: any) => {
-        this.totalStock = res.totalStock || 0;
-        this.categoryCounts = res.categoryCounts || {};
+        const summary = res.summary || {};
+        this.totalStock = summary.totalAvailableStock || 0;
+        this.categoryCounts = summary.totalProductsByCategory || {};
       },
       error: (error) => {
         console.error("Error fetching totals:", error);
       }
     });
   }
+  
   
 
   // Método para aplicar filtros de búsqueda
