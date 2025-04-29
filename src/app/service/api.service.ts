@@ -231,7 +231,7 @@ export class ApiService {
   }
 
   getTotalProducts(): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/products/all`, {
+    return this.http.get(`${environment.apiUrl}/products/totalProducts`, {
       headers: this.getHeader(),
     });
   }
