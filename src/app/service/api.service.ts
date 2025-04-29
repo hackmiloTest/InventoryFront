@@ -184,8 +184,8 @@ export class ApiService {
     });
   }
 
-  updateProduct(formData: any): Observable<any> {
-    return this.http.put(`${environment.apiUrl}/products/update`, formData, {
+  updateProduct(product: any): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/products/update`, product, {
       headers: this.getHeader(),
     });
   }
