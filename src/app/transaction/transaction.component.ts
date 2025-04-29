@@ -93,8 +93,10 @@ export class TransactionComponent implements OnInit {
   //HANDLE SERCH
   handleSearch(): void {
     this.currentPage = 1;
-    this.loadTransactions(); // Carga de nuevo aplicando búsqueda
+    this.valueToSearch = this.searchInput.trim(); // <-- este paso es esencial
+    this.loadTransactions();
   }
+  
   
 
   //NAVIGATE TGO TRANSACTIONS DETAILS PAGE
