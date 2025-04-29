@@ -81,7 +81,7 @@ export class AddEditProductComponent implements OnInit {
           this.sku = product.sku;
           this.price = product.price;
           this.stockQuantity = product.stockQuantity;
-          this.categoryId = product.caetgoryId;
+          this.categoryId = product.categoryId;
           this.description = product.description;
           this.imageUrl = product.imageUrl;
         } else {
