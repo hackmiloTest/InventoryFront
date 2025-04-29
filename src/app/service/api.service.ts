@@ -184,8 +184,8 @@ export class ApiService {
     });
   }
 
-  updateProduct(product: any): Observable<any> {
-    return this.http.put(`${environment.apiUrl}/products/update`, product, {
+  updateProduct(formData: any): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/products/update`, formData, {
       headers: this.getHeader(),
     });
   }
@@ -231,7 +231,7 @@ export class ApiService {
   }
 
   getTotalProducts(): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/products/totalProducts`, {
+    return this.http.get(`${environment.apiUrl}/products/all`, {
       headers: this.getHeader(),
     });
   }
