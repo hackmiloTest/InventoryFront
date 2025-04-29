@@ -121,7 +121,7 @@ export class AddEditProductComponent implements OnInit {
     }
 
     if (this.isEditing) {
-      formData.append("productId", this.productId!);
+      formData.append("productId", this.productId!.toString());
       this.apiService.updateProduct(formData).subscribe({
         next: (res: any) => {
           if (res.status === 200) {
