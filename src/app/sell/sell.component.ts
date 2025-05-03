@@ -58,7 +58,7 @@ export class SellComponent implements OnInit {
           product.name.toLowerCase().includes(searchTerm) || 
           product.sku.toString().toLowerCase().includes(searchTerm)
         )
-        .slice(0, 3); // Limita a 3 resultados
+        .slice(0, 9); // Limita a 3 resultados
     } else {
       this.filteredProducts = [];
     }
