@@ -63,7 +63,7 @@ export class PurchaseComponent implements OnInit {
           product.name.toLowerCase().includes(searchTerm) ||
           product.sku.toString().toLowerCase().includes(searchTerm)
         )
-        .slice(0, 3);
+        .slice(0, 9);
     } else {
       this.filteredProducts = [];
     }

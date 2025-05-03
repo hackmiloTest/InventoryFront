@@ -20,7 +20,7 @@ Object: any;
   message: string = '';
   currentPage: number = 1;
   totalPages: number = 0;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 50;
   searchTerm: string = ''; // <-- Nueva propiedad para el término de búsqueda
   totalStock: number = 0;
   categoryCounts: { [category: string]: number } = {};
