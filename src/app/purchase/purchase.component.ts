@@ -113,6 +113,7 @@ export class PurchaseComponent implements OnInit {
     this.supplierId = '';
     this.description = '';
     this.quantity = '';
+    this.productSearchTerm = '';
   }
 
 

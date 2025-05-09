@@ -104,7 +104,8 @@ export class SellComponent implements OnInit {
   resetForm():void{
     this.productId = '';
     this.description = '';
-    this.quantity = '';
+    this.quantity = '1';
+    this.productSearchTerm = '';
   }
 
 
