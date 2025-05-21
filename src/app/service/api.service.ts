@@ -260,12 +260,17 @@ export class ApiService {
     });
   }
 
-  getAllTransactions(searchText: string): Observable<any> {
+  getAllTransactions(page: number, size: number, searchText: string): Observable<any> {
     return this.http.get(`${environment.apiUrl}/transactions/all`, {
-      params: { searchText: searchText },
+      params: {
+        page: page.toString(),
+        size: size.toString(),
+        searchText: searchText || '',
+      },
       headers: this.getHeader(),
     });
   }
+  
 
   getTransactionById(id: string): Observable<any> {
     return this.http.get(`${environment.apiUrl}/transactions/${id}`, {

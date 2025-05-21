@@ -34,7 +34,7 @@ export class TransactionComponent implements OnInit {
   //FETCH Transactions
 
   loadTransactions(): void {
-    this.apiService.getAllTransactions(this.valueToSearch).subscribe({
+    this.apiService.getAllTransactions(this.currentPage - 1, this.itemsPerPage, this.valueToSearch).subscribe({
       next: (res: any) => {
         let transactions = res.transactions || [];
   
