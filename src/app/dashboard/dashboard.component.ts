@@ -43,7 +43,9 @@ export class DashboardComponent {
   // Selected month and year for filtering monthly data
   selectedMonth = '';
   selectedYear = '';
-
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+  valueToSearch: string = '';
   // Chart view dimensions, legend, and animations settings
   view: [number, number] = [700, 400];  // Chart size: width x height
   showLegend = true;  // Display chart legend
@@ -73,7 +75,7 @@ export class DashboardComponent {
 
   // Method to fetch all transactions from the API
   loadTransactions(): void {
-    this.apiService.getAllTransactions('').subscribe((data) => {
+    this.apiService.getAllTransactions(this.currentPage - 1, this.itemsPerPage, this.valueToSearch).subscribe((data) => {
       this.transactions = data.transactions; // Store transactions data
       this.processChartData(); // Process data to generate charts
     });
