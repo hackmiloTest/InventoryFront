@@ -21,7 +21,7 @@ export class TransactionComponent implements OnInit {
   valueToSearch: string = '';
   currentPage: number = 1;
   totalPages: number = 0;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 100;
   selectedType: string = ''; // '', 'SALE', 'PURCHASE', 'RETURN', 'SALE_NO_RETURN'
 
   ngOnInit(): void {
