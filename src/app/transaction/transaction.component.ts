@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../service/api.service';
 import { Router } from '@angular/router';
+import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-transaction',
@@ -13,6 +14,8 @@ import { Router } from '@angular/router';
   styleUrl: './transaction.component.css'
 })
 export class TransactionComponent implements OnInit {
+  private searchSubject = new Subject<string>();
+
   constructor(private apiService: ApiService, private router: Router) {}
 
   transactions: any[] = [];
@@ -22,29 +25,43 @@ export class TransactionComponent implements OnInit {
   currentPage: number = 1;
   totalPages: number = 0;
   itemsPerPage: number = 50;
-  selectedType: string = ''; // '', 'SALE', 'PURCHASE', 'RETURN', 'SALE_NO_RETURN'
+  selectedType: string = '';
 
   ngOnInit(): void {
     this.loadTransactions();
+    
+    // Configurar búsqueda con debounce (opcional)
+    this.searchSubject.pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    ).subscribe(searchValue => {
+      this.currentPage = 1;
+      this.valueToSearch = searchValue;
+      this.loadTransactions();
+    });
   }
 
   // FETCH Transactions desde backend con filtros y paginación
   loadTransactions(): void {
     this.apiService.getAllTransactions(
-        this.currentPage - 1, 
-        this.itemsPerPage, 
-        this.valueToSearch, 
-        this.selectedType // Puede ser 'SALE_NO_RETURN' o cualquier valor del enum
+      this.currentPage - 1, 
+      this.itemsPerPage, 
+      this.valueToSearch, 
+      this.selectedType
     ).subscribe({
-        next: (res: any) => {
-            this.transactions = res.transactions || [];
-            this.totalPages = res.totalPages || 1;
-        },
-        error: (error) => {
-            this.showMessage(error?.error?.message || 'Error al cargar transacciones');
-        }
+      next: (res: any) => {
+        this.transactions = res.transactions || [];
+        this.totalPages = res.totalPages || 1;
+      },
+      error: (error) => {
+        this.showMessage(error?.error?.message || 'Error al cargar transacciones');
+      }
     });
-}
+  }
+  // Para búsqueda con debounce
+  onSearchInputChange(): void {
+    this.searchSubject.next(this.searchInput.trim());
+  }
 
   // Cambiar tipo de filtro
   filterByType(type: string): void {
@@ -55,9 +72,7 @@ export class TransactionComponent implements OnInit {
 
   // Manejar búsqueda
   handleSearch(): void {
-    this.currentPage = 1;
-    this.valueToSearch = this.searchInput.trim();
-    this.loadTransactions();
+    this.searchSubject.next(this.searchInput.trim());
   }
 
   // Cambio de página
