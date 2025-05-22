@@ -4,14 +4,7 @@
   <!-- TRANSCATIONS HEADER -->
   <div class="transactions-header">
     <h1>Transactions</h1>
-    <div class="transaction-filters">
-      <button [class.active]="selectedType === 'SALE_NO_RETURN'" (click)="filterByType('SALE_NO_RETURN')">
-        Ventas sin Devolución
-      </button>      
-      <button [class.active]="selectedType === ''" (click)="filterByType('')">Todos</button>
-      <button [class.active]="selectedType === 'SALE'" (click)="filterByType('SALE')">Ventas</button>
-      <button [class.active]="selectedType === 'PURCHASE'" (click)="filterByType('PURCHASE')">Compras</button>
-      <button [class.active]="selectedType === 'RETURN'" (click)="filterByType('RETURN')">Devoluciones</button>
+    <div class="transaction-filters">    
     </div>    
     <div class="transaction-search">
       <input
