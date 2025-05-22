@@ -260,16 +260,28 @@ export class ApiService {
     });
   }
 
-  getAllTransactions(page: number, size: number, searchText: string): Observable<any> {
+  getAllTransactions(
+    page: number,
+    size: number,
+    searchText: string,
+    typeFilter?: string
+  ): Observable<any> {
+    const params: any = {
+      page: page.toString(),
+      size: size.toString(),
+      searchText: searchText || '',
+    };
+  
+    if (typeFilter && typeFilter.trim() !== '') {
+      params.typeFilter = typeFilter;
+    }
+  
     return this.http.get(`${environment.apiUrl}/transactions/all`, {
-      params: {
-        page: page.toString(),
-        size: size.toString(),
-        searchText: searchText || '',
-      },
+      params,
       headers: this.getHeader(),
     });
   }
+  
   
 
   getTransactionById(id: string): Observable<any> {
