@@ -22,8 +22,6 @@
       <thead>
         <tr>
           <th>NOMBRE</th>
-          <th>TALLAS</th>
-          <th>CODIGO DE BARRAS</th>
           <th>TIPO</th>
           <th>ESTADO</th>
           <th>VALOR</th>
@@ -41,8 +39,6 @@
               'return-row': transaction.transactionType === 'RETURN'
             }">
           <td>{{ transaction.product?.name }}</td>
-          <td>{{ transaction.product?.description }}</td>
-          <td>{{ transaction.product?.sku }}</td>
           <td>{{ transaction.transactionType }}</td>
           <td>{{ transaction.status }}</td>
           <td>{{ transaction.totalPrice }}</td>
