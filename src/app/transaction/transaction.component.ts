@@ -30,17 +30,13 @@ export class TransactionComponent implements OnInit {
 
   // FETCH Transactions desde backend con filtros y paginación
   loadTransactions(): void {
-    // Enviar el tipo directamente (el backend ahora maneja SALE_NO_RETURN)
-    const typeFilter = this.selectedType; 
-    
     this.apiService.getAllTransactions(
         this.currentPage - 1, 
-        Math.min(this.itemsPerPage, 50), // Limitar máximo 100 items
+        this.itemsPerPage, 
         this.valueToSearch, 
-        typeFilter
+        this.selectedType // Puede ser 'SALE_NO_RETURN' o cualquier valor del enum
     ).subscribe({
         next: (res: any) => {
-            // Los datos ya vienen ordenados y filtrados desde el backend
             this.transactions = res.transactions || [];
             this.totalPages = res.totalPages || 1;
         },
