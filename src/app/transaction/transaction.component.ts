@@ -30,39 +30,25 @@ export class TransactionComponent implements OnInit {
 
   // FETCH Transactions desde backend con filtros y paginación
   loadTransactions(): void {
-    const typeFilter = this.selectedType === 'SALE_NO_RETURN' ? '' : this.selectedType;
-
-    this.apiService
-      .getAllTransactions(this.currentPage - 1, this.itemsPerPage, this.valueToSearch, typeFilter)
-      .subscribe({
+    // Enviar el tipo directamente (el backend ahora maneja SALE_NO_RETURN)
+    const typeFilter = this.selectedType; 
+    
+    this.apiService.getAllTransactions(
+        this.currentPage - 1, 
+        Math.min(this.itemsPerPage, 50), // Limitar máximo 100 items
+        this.valueToSearch, 
+        typeFilter
+    ).subscribe({
         next: (res: any) => {
-          let transactions = res.transactions || [];
-
-          // Si hay filtro SALE_NO_RETURN, aplicar lógica especial (esto sí es válido en frontend)
-          if (this.selectedType === 'SALE_NO_RETURN') {
-            const saleTransactions = transactions.filter((t: any) => t.transactionType === 'SALE');
-            const returnTransactions = transactions.filter((t: any) => t.transactionType === 'RETURN');
-            const returnedSaleIds = new Set(returnTransactions.map((rt: any) => rt.originalSaleId));
-            transactions = saleTransactions.filter((sale: any) => !returnedSaleIds.has(sale.id));
-
-          }
-
-          // Ordenar por fecha (descendente)
-          transactions.sort(
-            (a: any, b: any) =>
-              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-          );
-
-          this.transactions = transactions;
-          this.totalPages = res.totalPages || 1;
+            // Los datos ya vienen ordenados y filtrados desde el backend
+            this.transactions = res.transactions || [];
+            this.totalPages = res.totalPages || 1;
         },
         error: (error) => {
-          this.showMessage(
-            error?.error?.message || error?.message || 'Error al cargar transacciones'
-          );
+            this.showMessage(error?.error?.message || 'Error al cargar transacciones');
         }
-      });
-  }
+    });
+}
 
   // Cambiar tipo de filtro
   filterByType(type: string): void {
